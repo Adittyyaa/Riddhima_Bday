@@ -11,6 +11,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [animateOut, setAnimateOut] = useState(false);
+  const [showMobileHint, setShowMobileHint] = useState(false);
 
   // Background Music State
   const audioRef = useRef(null);
@@ -22,6 +23,20 @@ const App = () => {
       setTimeout(() => setAnimateOut(true), 8400);
       setTimeout(() => setLoading(false), 9000);
       setTimeout(() => setShowContent(true), 8600);
+      
+      // Show mobile hint on first load for mobile devices
+      const isMobile = window.innerWidth <= 768;
+      const hasSeenHint = localStorage.getItem('hasSeenMobileHint');
+      if (isMobile && !hasSeenHint && showContent) {
+        setTimeout(() => {
+          setShowMobileHint(true);
+          // Auto-hide after 4 seconds
+          setTimeout(() => {
+            setShowMobileHint(false);
+            localStorage.setItem('hasSeenMobileHint', 'true');
+          }, 4000);
+        }, 1000);
+      }
     };
 
     if (document.readyState === "complete") {
@@ -31,7 +46,7 @@ const App = () => {
     }
 
     return () => window.removeEventListener("load", handlePageLoad);
-  }, []);
+  }, [showContent]);
 
   // Initialize background music
   useEffect(() => {
@@ -135,6 +150,18 @@ const App = () => {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Navigation Hint */}
+      {showMobileHint && (
+        <div className="mobile-hint">
+          <div className="mobile-hint-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="hint-icon">
+              <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+            </svg>
+            <p>Use "Back" buttons to navigate on mobile</p>
           </div>
         </div>
       )}

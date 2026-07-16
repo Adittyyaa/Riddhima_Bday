@@ -23,6 +23,49 @@
     z-index: 999;
 }
 
+/* Mobile Back Button */
+.boxMail .mobile-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 120, 130, 0.3);
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d13852;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-family: 'Sriracha', cursive;
+}
+
+.boxMail .mobile-back-btn:active {
+    transform: scale(0.95);
+}
+
+.boxMail .mobile-back-btn .back-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Show mobile back button on mobile devices */
+@media (max-width: 768px) {
+    .boxMail .mobile-back-btn {
+        display: flex;
+    }
+    
+    .boxMail .crossAll.desktop-close {
+        display: none;
+    }
+}
+
 .boxMail .boxMail-container {
     position: absolute;
     width: 750px;

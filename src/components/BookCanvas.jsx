@@ -21,9 +21,22 @@ const BookCanvas = ({ active, setActive }) => {
     return (
         <div className={`boxMail ${active ? 'hidden opacity-0 pointer-events-none' : 'opacity-100 visible'}`}>
 
-            <div onClick={() => setActive(!active)} className="crossAll">
+            {/* Desktop Close Button */}
+            <div onClick={() => setActive(!active)} className="crossAll desktop-close">
                 <GiCrossMark className="text-white" />
             </div>
+
+            {/* Mobile Back Button */}
+            <button 
+                onClick={() => setActive(!active)} 
+                className="mobile-back-btn"
+                aria-label="Go back"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="back-icon">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                <span>Back</span>
+            </button>
 
             <div ref={dropdownRef} className={`boxMail-container duration-500 -translate-y-1/2 ${active ? 'top-0' : ' top-1/2'}`}>
                 <div className="card1">
