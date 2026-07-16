@@ -107,7 +107,7 @@ const Home = () => {
                             <div className="image">
                                 <img src={profileImg} alt="" />
                             </div>
-                            <div className="name">
+                            <div className="name" onClick={() => SetActive(!Active)} style={{ cursor: 'pointer' }}>
                                 <i className="fa-solid fa-heart"></i>
                                 <span>Dear Riddhima</span>
                                 <i className="fa-solid fa-heart"></i>

@@ -16,7 +16,7 @@ const App = () => {
   // Background Music State
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(0.3); // Default 30%
 
   useEffect(() => {
     const handlePageLoad = () => {
@@ -68,7 +68,15 @@ const App = () => {
 
       tryAutoPlay();
     }
-  }, [loading, showContent, volume]);
+  }, [loading, showContent]);
+
+  // Update volume when it changes
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.volume = volume;
+    }
+  }, [volume]);
 
   // Music control functions
   const toggleMusic = () => {

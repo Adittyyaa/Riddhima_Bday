@@ -8,6 +8,18 @@
     --font-coiny: "Coiny", "system-ui";
     --font-sriracha:  "Sriracha", "cursive";
  }
+
+/* Root and HTML Setup */
+html {
+    height: 100%;
+    height: -webkit-fill-available;
+}
+
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
 /* Performance and Mobile Optimizations */
 
 /* Enable hardware acceleration for animations */
@@ -75,5 +87,12 @@ img {
     body {
         overflow-x: hidden;
         position: relative;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+    
+    #root {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
     }
 }
