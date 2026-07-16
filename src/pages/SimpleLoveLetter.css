@@ -1,0 +1,213 @@
+/* Simplified Love Letter Styles */
+.letter-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Envelope Styles */
+.envelope-simple {
+    perspective: 1000px;
+    transition: all 0.8s ease-in-out;
+}
+
+.envelope-front {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border: 3px solid #ff6b9d;
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+    transform-style: preserve-3d;
+}
+
+.envelope-front:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+}
+
+.envelope-simple.opened .envelope-front {
+    opacity: 0;
+    transform: scale(0.8) rotateY(-90deg);
+    pointer-events: none;
+}
+
+.open-btn {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Letter Paper */
+.letter-paper {
+    background: linear-gradient(to bottom, #fefefe 0%, #f9f9f9 100%);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: letterAppear 0.8s ease-out;
+    border: 1px solid #e5e7eb;
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff9fb8;
+    opacity: 0.3;
+}
+
+.letter-content {
+    position: relative;
+    z-index: 2;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+.letter-message {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatUp 6s infinite linear;
+    opacity: 0.7;
+}
+
+.heart-1 { left: 10%; animation-delay: 0s; }
+.heart-2 { left: 25%; animation-delay: 1.2s; }
+.heart-3 { left: 50%; animation-delay: 2.4s; }
+.heart-4 { left: 75%; animation-delay: 3.6s; }
+.heart-5 { left: 90%; animation-delay: 4.8s; }
+
+/* Heart Beating Animation */
+.heartBeating {
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        bottom: -50px;
+        opacity: 0.8;
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20px) rotate(180deg);
+    }
+    to {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(-20px) rotate(360deg);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .letter-section {
+        padding: 1rem;
+    }
+    
+    .envelope-front {
+        padding: 2rem 1.5rem;
+    }
+    
+    .letter-paper {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .letter-message {
+        font-size: 1rem;
+        padding-left: 10px;
+    }
+    
+    .envelope-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .envelope-recipient {
+        font-size: 1.25rem !important;
+    }
+    
+    .floating-heart {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-paper {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .letter-message {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
