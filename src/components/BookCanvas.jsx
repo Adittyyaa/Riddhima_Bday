@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import profileImg from '../assets/IMG_2234.jpg'
+import profileImg from '../assets/IMG_0863.PNG'
 import { GiCrossMark } from 'react-icons/gi'
 
 const BookCanvas = ({ active, setActive }) => {

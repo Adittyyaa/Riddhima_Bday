@@ -64,6 +64,19 @@
     .boxMail .crossAll.desktop-close {
         display: none;
     }
+
+    .boxMail .boxMail-container {
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(calc((100vw - 30px) / 750)) !important;
+    }
+
+    .boxMail .boxMail-container:hover {
+        transform: translate(-50%, -50%) scale(calc((100vw - 30px) / 750)) !important;
+    }
+
+    .boxMail .boxMail-container:hover .card1 {
+        transform: translate(-187.5px, -250px) rotateY(-140deg) !important;
+    }
 }
 
 .boxMail .boxMail-container {
@@ -72,18 +85,20 @@
     height: 500px;
     display: flex;
     margin: 0;
-    transform: scale(0.9);
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
     -webkit-perspective: 2000px;
     perspective: 2000px;
+    transition: transform 0.5s ease, top 0.5s ease;
 }
 
 .boxMail .boxMail-container:hover {
-    transform: rotate(-5deg);
+    transform: translate(-50%, -50%) scale(0.9) rotate(-5deg);
     filter: drop-shadow(0 0 10px #FF7882);
 }
 
 .boxMail .boxMail-container:hover .card1 {
-    transform: translate(-187px, -250px) rotateY(-140deg);
+    transform: translate(-187.5px, -250px) rotateY(-140deg);
 }
 
 .boxMail .boxMail-container .card1,
@@ -514,26 +529,6 @@
 
 
 @media screen and (max-width: 658px) {
-    .boxMail .boxMail-container {
-        position: absolute;
-        width: 650px;
-        height: 500px;
-        display: flex;
-        margin: 0;
-        transform: scale(0.9);
-        -webkit-perspective: 2000px;
-        perspective: 2000px;
-    }
-
-    .boxMail .boxMail-container:hover {
-        transform: rotate(-5deg);
-        filter: drop-shadow(0 0 10px #FF7882);
-    }
-
-    .boxMail .boxMail-container:hover .card1 {
-        transform: translate(-160px, -250px) rotateY(-140deg);
-    }
-
     .boxMail .boxMail-container .card2 h3 {
         font-family: 'Dancing Script', cursive;
         font-size: 28px;

@@ -16,7 +16,7 @@ const App = () => {
   // Background Music State
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.3); // Default 30%
+  const [volume, setVolume] = useState(0.2); // Default 20%
 
   useEffect(() => {
     const handlePageLoad = () => {
@@ -63,6 +63,22 @@ const App = () => {
         } catch (error) {
           console.log("Autoplay blocked, user interaction required");
           setIsPlaying(false);
+
+          // Fallback: play on first user interaction
+          const playOnInteraction = () => {
+            audio.play().then(() => {
+              setIsPlaying(true);
+              cleanup();
+            }).catch(err => console.log("Play on interaction failed:", err));
+          };
+
+          const cleanup = () => {
+            document.removeEventListener('click', playOnInteraction);
+            document.removeEventListener('touchstart', playOnInteraction);
+          };
+
+          document.addEventListener('click', playOnInteraction);
+          document.addEventListener('touchstart', playOnInteraction);
         }
       };
 

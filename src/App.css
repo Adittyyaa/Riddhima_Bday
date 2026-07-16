@@ -89,6 +89,7 @@ html {
 
 .content .right {
     width: 60%;
+    min-height: 500px;
 }
 
 .left .btn {
@@ -110,7 +111,7 @@ html {
     transition: all .5s ease-in-out;
 }
 
-#FromRexon {
+#FromAditya {
     margin-top: 30px;
     background-color: var(--color-text-pink);
     outline: none;
@@ -125,6 +126,21 @@ html {
     z-index: 2;
     transform: scale(1);
     transition: all .5s ease-in-out;
+}
+
+#btn__letter:hover svg {
+    animation: rotateHeart 1s infinite linear;
+}
+
+#FromAditya:hover {
+    border-color: var(--color-heart);
+    background-color: var(--color-heart);
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#FromAditya:hover svg {
+    animation: rotateHeart 1s infinite linear;
 }
 
 #btn__letter:active {
@@ -142,14 +158,14 @@ html {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#FromRexon:hover {
+#FromAditya:hover {
     border-color: var(--color-heart);
     background-color: var(--color-heart);
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#FromRexon:hover svg {
+#FromAditya:hover svg {
     animation: rotateHeart 1s infinite linear;
 }
 
@@ -176,11 +192,12 @@ html {
 
 .title {
     position: relative;
-    width: 100%;
+    width: fit-content;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     font-family: "Titan One", sans-serif;
-    font-size: 6rem;
+    font-size: clamp(3.5rem, 6.5vw, 6rem);
     flex-direction: column;
     line-height: 120%;
     perspective: 1000px;
@@ -225,10 +242,10 @@ html {
 
 .title .hat {
     position: absolute;
-    right: 45px;
+    right: -25px;
     top: -350px;
     transform: rotate(-40deg);
-    z-index: -1;
+    z-index: 5;
     animation: topHat 4s 7s forwards ease;
 }
 
@@ -304,6 +321,8 @@ html {
     position: absolute;
     padding: 0px 20px;
     bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
     border: 3px solid var(--color-black);
     font-family: 'Dancing Script', cursive;
     cursor: pointer;
@@ -311,12 +330,12 @@ html {
 }
 
 .name:hover {
-    transform: scale(1.05);
+    transform: translateX(-50%) scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .name:active {
-    transform: scale(0.98);
+    transform: translateX(-50%) scale(0.98);
 }
 
 .date__of__birth span,
@@ -358,14 +377,15 @@ html {
 
 .content .right .image img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
 
 }
 
 .cricle {
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: -20px;
+    right: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -550,11 +570,11 @@ html {
     }
 }
 
-.decorate_bottom {
-    position: absolute;
-    right: 0;
-    bottom: -10px;
-}
+    .decorate_bottom {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
 
 .decorate_flower--one {
     position: absolute;
@@ -819,25 +839,7 @@ html {
         perspective: 1000px;
     }
 
-    .cricle {
-        position: absolute;
-        top: 10px;
-        right: -54px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: scale(0);
-        animation: scaleCricle 3s 15s forwards ease-in-out;
-    }
 
-    .title .hat {
-        position: absolute;
-        right: -98px;
-        top: -51px !important;
-        transform: rotate(-40deg);
-        z-index: -1;
-        animation: topHat 4s 7s forwards ease;
-    }
 
     .box__letter .letter__border {
         position: absolute;
@@ -909,9 +911,10 @@ html {
     }
 
     .name {
-        position: absolute;
-        padding: 0px 3px;
-        bottom: -6px;
+        position: relative;
+        padding: 5px 12px;
+        bottom: auto;
+        margin-top: 10px;
         border: 3px solid var(--color-black);
     }
 
@@ -976,6 +979,11 @@ html {
         width: 50px;
     }
 
+    .smiley__icon img {
+        width: 100%;
+        height: auto;
+    }
+
     .right .balloon_two {
         position: absolute;
         top: 60px;
@@ -987,7 +995,7 @@ html {
         width: 200px;
     }
 
-    #FromRexon {
+    #FromAditya {
         margin-top: 10px;
         width: 200px;
     }
@@ -1083,6 +1091,22 @@ html {
 @media (min-width: 769px) {
     .mobile-hint {
         display: none;
+    }
+
+    #wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+
+    .content {
+        margin: auto 0;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
     }
 }
 
@@ -1349,6 +1373,7 @@ html {
         width: 100% !important;
         margin-top: 20px;
         order: 2;
+        min-height: 300px;
     }
     
     /* Title optimization */
@@ -1414,8 +1439,18 @@ html {
     .name {
         position: relative;
         bottom: auto;
+        left: auto;
+        transform: none;
         margin-top: 10px;
         padding: 8px 20px;
+    }
+    
+    .name:hover {
+        transform: scale(1.05);
+    }
+    
+    .name:active {
+        transform: scale(0.98);
     }
     
     .name span {
@@ -1460,8 +1495,8 @@ html {
     
     /* Circle text optimization */
     .cricle {
-        top: 10px;
-        right: -20px;
+        top: -10px;
+        right: -15px;
     }
     
     .text__cricle {

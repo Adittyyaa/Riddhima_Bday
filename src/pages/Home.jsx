@@ -8,7 +8,7 @@ import hat from '../assets/hat.png'
 import smileIcon from '../assets/smiley_icon.png'
 import BookCanvas from "../components/BookCanvas";
 import SmallLetter from "../components/SmallLetter";
-import profileImg from "../assets/IMG_2234.jpg";
+import profileImg from "../assets/IMG_0863.PNG";
 
 const Home = () => {
     // ------------------- Hooks 
@@ -51,8 +51,8 @@ const Home = () => {
         <>
             <div id="wrapper">
                 <div className="flag__birthday">
-                    <img src={png} alt="" width="350" className="flag__left" />
-                    <img src={png} alt="" width="350" className="flag__right" />
+                    <img src={png} alt="" className="flag__left w-[120px] md:w-[350px]" />
+                    <img src={png} alt="" className="flag__right w-[120px] md:w-[350px]" />
                 </div>
 
                 <div className="content">
@@ -118,19 +118,18 @@ const Home = () => {
                             <div className="balloon_two">
                                 <img width="100px" src={ballon2} alt="" />
                             </div>
-                        </div>
-
-                        <div className="cricle">
-                            <div className="text__cricle">
-                                {["h", "a", "p", "p", "y", "-", "b", "i", "r", "t", "h", "d", "a", "y", "-"].map(
-                                    (char, i) => (
-                                        <span key={i} style={{ "--i": i + 1 }}>
-                                            {char}
-                                        </span>
-                                    )
-                                )}
+                            <div className="cricle">
+                                <div className="text__cricle">
+                                    {["h", "a", "p", "p", "y", "-", "b", "i", "r", "t", "h", "d", "a", "y", "-"].map(
+                                        (char, i) => (
+                                            <span key={i} style={{ "--i": i + 1 }}>
+                                                {char}
+                                            </span>
+                                        )
+                                    )}
+                                </div>
+                                <i className="fa-solid fa-heart"></i>
                             </div>
-                            <i className="fa-solid fa-heart"></i>
                         </div>
                     </div>
                 </div>

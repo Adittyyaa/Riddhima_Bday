@@ -18,19 +18,19 @@ const SmallLetter = () => {
         if (isOpen) {
             // CLOSE SEQUENCE:
             // 1. Set the class for the closing animation
-            letterElement.classList.add('small-aditya-letter--close');
+            letterElement.classList.add('small-rajib-letter--close');
             setIsOpen(false);
 
             // 2. Remove the closing class after the animation duration (600ms)
             setTimeout(() => {
-                letterElement.classList.remove('small-aditya-letter--close');
+                letterElement.classList.remove('small-rajib-letter--close');
             }, 600);
 
         } else {
             // OPEN SEQUENCE:
             // 1. Ensure the close class is removed
-            letterElement.classList.remove('small-aditya-letter--close');
-            // 2. Set state to open (which adds 'small-aditya-letter--open')
+            letterElement.classList.remove('small-rajib-letter--close');
+            // 2. Set state to open (which adds 'small-rajib-letter--open')
             setIsOpen(true);
         }
     };
@@ -42,8 +42,8 @@ const SmallLetter = () => {
         if (!letterElement) return; // Safety check
 
         // Start the close animation immediately
-        letterElement.classList.remove('small-aditya-letter--open');
-        letterElement.classList.add('small-aditya-letter--close');
+        letterElement.classList.remove('small-rajib-letter--open');
+        letterElement.classList.add('small-rajib-letter--close');
         setIsOpen(false); // Update state to reflect closed status
 
         // Remove the closing class after the animation duration (600ms)
